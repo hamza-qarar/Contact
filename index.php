@@ -1,24 +1,9 @@
-<?php
-$headline = 'Herzlich willkommen';
-
-if (($_GET['page'] ?? '') == 'contacts') {
-    $headline = 'Deine Kontakte';
-}
-
-if (($_GET['page'] ?? '') == 'addcontact') {
-    $headline = 'Kontakt hinzufügen';
-}
-
-if (($_GET['page'] ?? '') == 'legal') {
-    $headline = 'Impressum';
-}
-?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontaktverwaltung – <?= htmlspecialchars($headline) ?></title>
+    <title>Kontaktverwaltung</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * {
@@ -306,7 +291,7 @@ if (($_GET['page'] ?? '') == 'legal') {
     <!-- Main Content -->
     <div class="main-content">
         <header class="topbar">
-            <span class="topbar-title"><?= htmlspecialchars($headline) ?></span>
+            <span class="topbar-title">Kontaktverwaltung</span>
             <div class="topbar-actions">
                 <div class="avatar">H</div>
             </div>
@@ -314,6 +299,27 @@ if (($_GET['page'] ?? '') == 'legal') {
 
         <main class="content-area">
             <?php
+            $headline = 'Herzlich willkommen';
+            $contacts = [];
+
+
+            if(isset($_POST['name']) && isset($_POST['phone'])) {
+                echo 'Kontakt wurde hinzugefügt';
+            }
+
+            if (($_GET['page'] ?? '') == 'contacts') {
+                $headline = 'Deine Kontakte';
+            }
+
+            if (($_GET['page'] ?? '') == 'addcontact') {
+                $headline = 'Kontakt hinzufügen';
+            }
+
+            if (($_GET['page'] ?? '') == 'legal') {
+                $headline = 'Impressum';
+            }
+
+
             if (($_GET['page'] ?? '') == 'contacts') {
                 echo "
                 <div class='page-card'>
