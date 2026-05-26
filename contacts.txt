@@ -1,32 +1,22 @@
 [
     {
-        "name": "schmapf",
-        "phone": "knapf",
+        "name": "Felix Bauer",
+        "phone": "+12345678",
         "favorite": true,
         "called": true
     },
     {
-        "name": "Örv",
-        "phone": "Smanörv",
-        "favorite": true
+        "name": "Anna Berger",
+        "phone": "+24683579",
+        "called": true
     },
     {
-        "name": "öö",
-        "phone": "üü",
-        "favorite": false
+        "name": "Tobias Seiler",
+        "phone": "+09876543",
+        "called": true
     },
     {
-        "name": "Lökum",
-        "phone": "Knapökum",
-        "favorite": true
-    },
-    {
-        "name": "sd",
-        "phone": "dfs",
-        "favorite": false
-    },
-    {
-        "name": "Felix",
-        "phone": "Klein"
+        "name": "Josephine Strolz",
+        "phone": "+08649753"
     }
 ]
