@@ -178,7 +178,7 @@
         .welcome-card h2 {
             font-size: 24px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 18px;
         }
 
         .welcome-card p {
@@ -223,6 +223,7 @@
             font-size: 24px;
             font-weight: 700;
             color: #1a1f36;
+            margin-bottom: 18px;
         }
 
         .stat-info p {
@@ -244,6 +245,68 @@
             border-radius: 0 0 12px 12px;
         }
 
+        /* Kontaktliste */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f2f5;
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .contact-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #f0f2f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            font-size: 15px;
+            color: #1a1f36;
+        }
+
+        .contact-phone {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .contact-call {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .contact-call:hover {
+            background: #059669;
+        }
+
         /* Allgemeine Inhaltsseiten */
         .page-card {
             background: #ffffff;
@@ -256,7 +319,7 @@
             font-size: 20px;
             font-weight: 700;
             color: #1a1f36;
-            margin-bottom: 12px;
+            margin-bottom: 30px;
         }
 
         .page-card p {
@@ -348,12 +411,25 @@
 
 
             if (($_GET['page'] ?? '') == 'contacts') {
-                echo "
-                <div class='page-card'>
-                    <h2>Deine Kontakte</h2>
-                    <p>Auf dieser Seite hast du einen Überblick über deine gespeicherten Kontakte.</p>
-                </div>
-                ";
+                echo "<div class='page-card'>
+                    <h2>Deine Kontakte</h2>";
+
+                foreach ($contacts as $row) {
+                    $name  = htmlspecialchars($row['name']);
+                    $phone = htmlspecialchars($row['phone']);
+                    echo "
+                    <div class='contact-item'>
+                        <div class='contact-avatar'><i class='fa-solid fa-user'></i></div>
+                        <div class='contact-info'>
+                            <span class='contact-name'>$name</span>
+                            <span class='contact-phone'>$phone</span>
+                        </div>
+                        <a href='tel:$phone' class='contact-call'>Anrufen</a>
+                    </div>";
+                }
+
+                echo "</div>";
+
             } else if (($_GET['page'] ?? '') == 'legal') {
                 echo "
                 <div class='page-card'>
