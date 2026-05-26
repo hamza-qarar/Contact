@@ -1,62 +1,32 @@
 [
     {
-        "name": "Armusev",
-        "phone": "Snabarv"
-    },
-    {
-        "name": "Armusev",
-        "phone": "Snabarv"
-    },
-    {
         "name": "schmapf",
-        "phone": "knapf"
+        "phone": "knapf",
+        "favorite": true,
+        "called": true
     },
     {
         "name": "Örv",
-        "phone": "Smanörv"
+        "phone": "Smanörv",
+        "favorite": true
     },
     {
         "name": "öö",
-        "phone": "üü"
-    },
-    {
-        "name": "öö",
-        "phone": "üü"
+        "phone": "üü",
+        "favorite": false
     },
     {
         "name": "Lökum",
-        "phone": "Knapökum"
+        "phone": "Knapökum",
+        "favorite": true
     },
     {
         "name": "sd",
-        "phone": "dfs"
+        "phone": "dfs",
+        "favorite": false
     },
     {
-        "name": "sd",
-        "phone": "dfs"
-    },
-    {
-        "name": "ads",
-        "phone": "df"
-    },
-    {
-        "name": "ads",
-        "phone": "df"
-    },
-    {
-        "name": "sfd",
-        "phone": "adf"
-    },
-    {
-        "name": "sfd",
-        "phone": "adf"
-    },
-    {
-        "name": "sfd",
-        "phone": "adf"
-    },
-    {
-        "name": "sfd",
-        "phone": "adf"
+        "name": "Felix",
+        "phone": "Klein"
     }
 ]
