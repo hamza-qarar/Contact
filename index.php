@@ -231,6 +231,19 @@
             margin-top: 2px;
         }
 
+        .success-msg {
+            background: #ffffff;
+            border-radius: 12px 12px 0 0;
+            padding: 16px 32px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+            color: #10b981;
+            font-weight: 500;
+        }
+
+        .success-msg + .page-card {
+            border-radius: 0 0 12px 12px;
+        }
+
         /* Allgemeine Inhaltsseiten */
         .page-card {
             background: #ffffff;
@@ -302,9 +315,23 @@
             $headline = 'Herzlich willkommen';
             $contacts = [];
 
+            if(file_exists('contacts.txt')) {
+                $text = file_get_contents('contacts.txt');
+                $decoded = json_decode($text, true);
+                if(is_array($decoded)) {
+                    $contacts = $decoded;
+                }
+            }
+
 
             if(isset($_POST['name']) && isset($_POST['phone'])) {
-                echo 'Kontakt wurde hinzugefügt';
+                echo '<div class="success-msg">Kontakt <b>' . $_POST['name'] . '</b> wurde hinzugefügt</div>';
+                $newContact = [
+                    'name' => $_POST['name'],
+                    'phone' => $_POST['phone']
+                ];
+                array_push($contacts, $newContact);
+                file_put_contents('contacts.txt', json_encode($contacts, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
             }
 
             if (($_GET['page'] ?? '') == 'contacts') {
